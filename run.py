@@ -1,6 +1,6 @@
 import math  
 import random  
-import pygame 
+ 
 
 def minesweeper(n,k):
     """
