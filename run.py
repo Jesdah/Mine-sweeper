@@ -41,9 +41,23 @@ def minesweeper(n, k):
         if (x >= 0 and x <= n-1) and (y >= 0 and y <= n-2):
             if arr[y+1][x] != 'X':
                 arr[y+1][x] += 1 # bottom center
+    
+    return arr
+
+
+def player_board(n):
+    arr = [["*" for row in range(n)] for column in range(n)]
     for row in arr:
         print("\t".join(str(cell) for cell in row))
         print("")
-if __name__ == "__main__":
-    minesweeper(10,20)
-print(minesweeper) 
+    return arr
+
+
+
+
+def main():
+   minesweeper(10,20)
+   player_board(10) 
+
+main()
+print(minesweeper)
