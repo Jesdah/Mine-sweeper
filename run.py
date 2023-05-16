@@ -40,4 +40,4 @@ def minesweeper(n):
         print("")
 if __name__ == "__main__":
     minesweeper(10)
-print(minesweeper)
+print(minesweeper) 
