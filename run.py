@@ -46,6 +46,11 @@ def minesweeper(n, k):
 
 
 def player_board(n):
+    """
+    This code was copied from:
+    https://medium.com/swlh/this-is-how-to-create-a-simple-minesweeper-game-in-python-af02077a8de
+    Hides the real values from the player.
+    """
     arr = [["*" for row in range(n)] for column in range(n)]
     for row in arr:
         print("\t".join(str(cell) for cell in row))
@@ -56,6 +61,9 @@ def player_board(n):
 
 
 def main():
+    """
+    Runs all functions.
+    """
    minesweeper(10,20)
    player_board(10) 
 
