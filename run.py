@@ -85,6 +85,35 @@ def player_board(n):
 
 
 
+def player_choise():
+    """
+    Allows the user to select coordinates on the board
+    to open cells.
+    """
+    while True:
+        print("Enter your cell you want to open :")
+        player_x= input("X: Enter numbers 1-9:")
+        player_Y= input("Y: Enter numbers 1-9:")
+        player_x=int(player_x)
+        player_Y=int(player_Y)
+    
+        try:
+            if 0 < player_x <=9 and 0 < player_Y <=9:
+                print("its working!!")
+                player_x = x
+                player_Y = y
+                break
+            else: print(f"Please enter a number between 1-9. You entered:{player_x} and {player_Y}.")
+        except NameError as e:
+            print(f"NameError{e}")
+    return False
+
+    if
+    
+
+    
+
+
 
 def main():
     """
@@ -92,7 +121,8 @@ def main():
     """
     minesweeper_heading()
     minesweeper(10,20)
-    player_board(10) 
+    player_board(10)
+    player_choise()
 
 main()
 print(main)
