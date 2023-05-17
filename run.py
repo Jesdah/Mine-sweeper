@@ -2,6 +2,31 @@ import math
 import random  
 import pyfiglet
  
+result = pyfiglet.figlet_format("Mine Sweeper")
+
+def minesweeper_heading():
+    """
+    Let the user start the game or read the instructions.
+    If the user inputs the wrong inputs the function raises an Error.
+    """
+    print(result)
+    while True:
+        try:
+            start_instructions= input("Press 1 to start game\nPress 2 for instructions:")
+            print(start_instructions)
+            if start_instructions== "1":
+                print("it works!")
+                break
+            if start_instructions=="2":
+                print("Minesweeper is a game where mines are hidden in a grid of squares.\n"
+                "Safe squares have numbers telling you how many mines touch the square.\n"
+                "You can use the number clues to solve the game by opening all of the safe squares.\n"
+                "If you click on a mine you lose the game!")
+        except NameError as e:
+            print(f"You must enter '1' or '2'. You entered:{e}")
+        else: print(f"You must enter '1' or '2'. You entered:{start_instructions}")
+    return False
+
 
 def minesweeper(n,k):
     """
@@ -65,6 +90,7 @@ def main():
     """
     Runs all functions.
     """
+    minesweeper_heading()
     minesweeper(10,20)
     player_board(10) 
 
