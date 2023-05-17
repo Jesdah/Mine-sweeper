@@ -64,8 +64,8 @@ def main():
     """
     Runs all functions.
     """
-   minesweeper(10,20)
-   player_board(10) 
+    minesweeper(10,20)
+    player_board(10) 
 
 main()
-print(minesweeper)
+print(main)
