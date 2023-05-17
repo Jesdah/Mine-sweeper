@@ -1,5 +1,6 @@
 import math  
 import random  
+import pyfiglet
  
 
 def minesweeper(n,k):
