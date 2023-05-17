@@ -78,13 +78,20 @@ def player_board(n):
     Hides the real values from the player.
     """
     arr = [["*" for row in range(n)] for column in range(n)]
-    for row in arr:
-        print("\t".join(str(cell) for cell in row))
-        print("")
     return arr
 
+def reviel_board(map):
+    """
+    Reviels the map when called.
+    This code is from:
+     https://medium.com/swlh/this-is-how-to-create-a-simple-minesweeper-game-in-python-af02077a8de
+    """
+    for row in map:
+        print("\t".join(str(cell) for cell in row))
+        print("")
 
 hidden_board=minesweeper(10,20)
+player_check=player_board(10)
 def player_choise():
     """
     Allows the user to select coordinates on the board
@@ -103,10 +110,12 @@ def player_choise():
                 x=player_x
                 y=player_Y
 
-                if hidden_board[x][y]=="X":
-                    print("its looking realy good")
                 if hidden_board[x][y]!="X":
-                    print("looking good")
+                    reviel_board(player_check)
+                    print("its looking realy good")
+                if hidden_board[x][y]=="X":
+                    
+                    print("Game over!")
                 break
             else: print(f"Please enter a number between 1-9. You entered:{player_x} and {player_Y}.")
         except NameError as e:
@@ -127,7 +136,7 @@ def main():
     """
     minesweeper_heading()
     
-    player_check=player_board(10)
+    
     player_choise()
 
 main()
