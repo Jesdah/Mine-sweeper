@@ -9,7 +9,7 @@ def minesweeper(n,k):
     Builds a game board 10*10 and randomly places a bomb
     and the neighbouring cells increase by +1.
     """
-def minesweeper(n, k):
+
     arr = [[0 for row in range(n)] for column in range(n)]
     for num in range(k):
         x = random.randint(0,n-1)
