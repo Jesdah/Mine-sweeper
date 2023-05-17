@@ -84,7 +84,7 @@ def player_board(n):
     return arr
 
 
-
+hidden_board=minesweeper(10,20)
 def player_choise():
     """
     Allows the user to select coordinates on the board
@@ -100,15 +100,21 @@ def player_choise():
         try:
             if 0 < player_x <=9 and 0 < player_Y <=9:
                 print("its working!!")
-                player_x = x
-                player_Y = y
+                x=player_x
+                y=player_Y
+
+                if hidden_board[x][y]=="X":
+                    print("its looking realy good")
+                if hidden_board[x][y]!="X":
+                    print("looking good")
                 break
             else: print(f"Please enter a number between 1-9. You entered:{player_x} and {player_Y}.")
         except NameError as e:
             print(f"NameError{e}")
     return False
 
-    if
+    
+
     
 
     
@@ -120,8 +126,8 @@ def main():
     Runs all functions.
     """
     minesweeper_heading()
-    minesweeper(10,20)
-    player_board(10)
+    
+    player_check=player_board(10)
     player_choise()
 
 main()
