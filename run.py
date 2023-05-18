@@ -37,10 +37,10 @@ def minesweeper(n,k):
     and the neighbouring cells increase by +1.
     """
 
-    arr = [[0 for row in range(n)] for column in range(n)]
+    arr = [[1 for row in range(n)] for column in range(n)]
     for num in range(k):
-        x = random.randint(0,n-1)
-        y = random.randint(0,n-1)
+        x = random.randint(1,n-1)
+        y = random.randint(1,n-1)
         arr[y][x] = 'X'
         if (x >=0 and x <= 8) and (y >= 0 and y <= 9):
             if arr[y][x+1] != 'X':
@@ -126,7 +126,7 @@ def player_choise():
                     print("its looking realy good")
                 
                 if hidden_board[x][y]=="X":
-                    
+                    reviel_board(hidden_board)
                     print("Game over!")
                     break
             else: print(f"Please enter a number between 1-9. You entered:{player_x} and {player_Y}.")
