@@ -37,7 +37,7 @@ def minesweeper(n,k):
     and the neighbouring cells increase by +1.
     """
 
-    arr = [[1 for row in range(n)] for column in range(n)]
+    arr = [[0 for row in range(n)] for column in range(n)]
     for num in range(k):
         x = random.randint(1,n-1)
         y = random.randint(1,n-1)
@@ -105,6 +105,7 @@ def player_choise():
     Allows the user to select coordinates on the board
     to open cells.
     """
+    reviel_board(player_check)
     while True:
         
         print("Enter your cell you want to open :")
@@ -128,7 +129,17 @@ def player_choise():
                 if hidden_board[x][y]=="X":
                     reviel_board(hidden_board)
                     print("Game over!")
-                    break
+                    restart_game = input("Restart? Y/N:")
+                    
+                    if restart_game == "y":
+                        main()
+
+                    if restart_game == "n":
+                        print("Exit program.")
+                        exit()
+
+                    else: print("Please answer Yes or No.")
+
             else: print(f"Please enter a number between 1-9. You entered:{player_x} and {player_Y}.")
         except NameError as e:
             print(f"NameError{e}")
