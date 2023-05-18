@@ -16,6 +16,7 @@ def minesweeper_heading():
             print(start_instructions)
             if start_instructions== "1":
                 print("it works!")
+                
                 break
             if start_instructions=="2":
                 print("Minesweeper is a game where mines are hidden in a grid of squares.\n"
@@ -90,6 +91,13 @@ def reviel_board(map):
         print("\t".join(str(cell) for cell in row))
         print("")
 
+def CheckWon(map):
+    for row in map:
+        for cell in row:
+            if cell == '*':
+                return False
+    return True
+
 hidden_board=minesweeper(10,20)
 player_check=player_board(10)
 def player_choise():
@@ -98,6 +106,7 @@ def player_choise():
     to open cells.
     """
     while True:
+        
         print("Enter your cell you want to open :")
         player_x= input("X: Enter numbers 1-9:")
         player_Y= input("Y: Enter numbers 1-9:")
@@ -111,12 +120,15 @@ def player_choise():
                 y=player_Y
 
                 if hidden_board[x][y]!="X":
+                    player_check[x][y] = hidden_board[x][y]
                     reviel_board(player_check)
+                    continue
                     print("its looking realy good")
+                
                 if hidden_board[x][y]=="X":
                     
                     print("Game over!")
-                break
+                    break
             else: print(f"Please enter a number between 1-9. You entered:{player_x} and {player_Y}.")
         except NameError as e:
             print(f"NameError{e}")
