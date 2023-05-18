@@ -129,16 +129,8 @@ def player_choise():
                 if hidden_board[x][y]=="X":
                     reviel_board(hidden_board)
                     print("Game over!")
-                    restart_game = input("Restart? Y/N:")
-                    
-                    if restart_game == "y":
-                        main()
-
-                    if restart_game == "n":
-                        print("Exit program.")
-                        exit()
-
-                    else: print("Please answer Yes or No.")
+                    restart()
+                       
 
             else: print(f"Please enter a number between 1-9. You entered:{player_x} and {player_Y}.")
         except NameError as e:
@@ -146,8 +138,19 @@ def player_choise():
     return False
 
     
+def restart():
+    while True:
+        restart_game = input("Restart? Y/N:")
+                            
+        if restart_game == "y":
+            main()
 
-    
+        if restart_game == "n":
+            print("Exit program.")
+            exit()
+
+        else: print(f"Please answer Yes or No, You entered:{restart_game}")
+    return False    
 
     
 
