@@ -3,7 +3,7 @@ import random
 import pyfiglet
  
 result = pyfiglet.figlet_format("Mine Sweeper")
-
+i=0
 def minesweeper_heading():
     """
     Let the user start the game or read the instructions.
@@ -127,6 +127,7 @@ def player_choise():
                 if hidden_board[x][y]!="X":
                     player_check[x][y] = hidden_board[x][y]
                     reviel_board(player_check)
+                    player_score(i)
                     continue
                     print("its looking realy good")
                 
@@ -156,7 +157,13 @@ def restart():
         else: print(f"Please answer Yes or No, You entered:{restart_game}")
     return False    
 
+def player_score(i):
     
+    i + 1
+    print(i)   
+
+
+
 
 
 
