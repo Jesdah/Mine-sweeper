@@ -120,6 +120,10 @@ def player_choise():
                 x=player_x
                 y=player_Y
 
+                if hidden_board[x][y] == player_check[x][y]:
+                    print("These coordinates have already been used, try again!")
+                    continue
+
                 if hidden_board[x][y]!="X":
                     player_check[x][y] = hidden_board[x][y]
                     reviel_board(player_check)
