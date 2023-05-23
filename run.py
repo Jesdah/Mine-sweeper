@@ -3,7 +3,7 @@ import random
 import pyfiglet
  
 result = pyfiglet.figlet_format("Mine Sweeper")
-i=0
+score = 0
 def minesweeper_heading():
     """
     Let the user start the game or read the instructions.
@@ -105,6 +105,7 @@ def player_choise():
     Allows the user to select coordinates on the board
     to open cells.
     """
+    global score
     reviel_board(player_check)
     while True:
         
@@ -127,8 +128,9 @@ def player_choise():
                 if hidden_board[x][y]!="X":
                     player_check[x][y] = hidden_board[x][y]
                     reviel_board(player_check)
-                    player_score(i)
-                    continue
+                    score += 1
+                    print(f"Score: {score}")
+                    
                     print("its looking realy good")
                 
                 if hidden_board[x][y]=="X":
@@ -140,7 +142,7 @@ def player_choise():
             else: print(f"Please enter a number between 1-9. You entered:{player_x} and {player_Y}.")
         except NameError as e:
             print(f"NameError{e}")
-    return False
+    return True
 
     
 def restart():
@@ -157,15 +159,8 @@ def restart():
         else: print(f"Please answer Yes or No, You entered:{restart_game}")
     return False    
 
-def player_score(i):
     
-    i + 1
-    print(i)   
-
-
-
-
-
+     
 
 def main():
     """
