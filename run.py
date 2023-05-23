@@ -130,12 +130,15 @@ def player_choise():
                     reviel_board(player_check)
                     score += 1
                     print(f"Score: {score}")
-                    
                     print("its looking realy good")
                 
                 if hidden_board[x][y]=="X":
                     reviel_board(hidden_board)
                     print("Game over!")
+                    restart()
+                
+                if score == 20:
+                    print("You won!!")
                     restart()
                        
 
