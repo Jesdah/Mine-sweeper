@@ -108,44 +108,46 @@ def player_choise():
     global score
     reviel_board(player_check)
     while True:
-        
-        print("Enter your cell you want to open :")
-        player_x= input("X: Enter numbers 1-9:")
-        player_Y= input("Y: Enter numbers 1-9:")
-        player_x=int(player_x)
-        player_Y=int(player_Y)
-    
         try:
-            if 0 < player_x <=9 and 0 < player_Y <=9:
-                print("its working!!")
-                x=player_x
-                y=player_Y
+            print("Enter your cell you want to open :")
+            player_x= input("X: Enter numbers 1-9:")
+            player_Y= input("Y: Enter numbers 1-9:")
+            player_x=int(player_x)
+            player_Y=int(player_Y)
+    
+        except ValueError:
+            print("Please enter a number between 1-9.")
+            continue
+            
+        if 0 < player_x <=9 and 0 < player_Y <=9:
+            print("its working!!")
+            x=player_x
+            y=player_Y
 
-                if hidden_board[x][y] == player_check[x][y]:
-                    print("These coordinates have already been used, try again!")
-                    continue
+            if hidden_board[x][y] == player_check[x][y]:
+                print("These coordinates have already been used, try again!")
+                continue
 
-                if hidden_board[x][y]!="X":
-                    player_check[x][y] = hidden_board[x][y]
-                    reviel_board(player_check)
-                    score += 1
-                    print(f"Score: {score}")
-                    print("its looking realy good")
+            if hidden_board[x][y]!="X":
+                player_check[x][y] = hidden_board[x][y]
+                reviel_board(player_check)
+                score += 1
+                print(f"Score: {score}")
+                print("its looking realy good")
                 
-                if hidden_board[x][y]=="X":
-                    reviel_board(hidden_board)
-                    print("Game over!")
-                    restart()
+            if hidden_board[x][y]=="X":
+                reviel_board(hidden_board)
+                print("Game over!")
+                restart()
                 
-                if score == 20:
-                    print("You won!!")
-                    restart()
+            if score == 20:
+                print("You won!!")
+                restart()
                        
 
-            else: print(f"Please enter a number between 1-9. You entered:{player_x} and {player_Y}.")
-        except NameError as e:
-            print(f"NameError{e}")
-    return True
+        else: print(f"Please enter a number between 1-9. You entered:{player_x} and {player_Y}.")
+        
+    return False
 
     
 def restart():
