@@ -37,7 +37,7 @@ def minesweeper(n,k):
     and the neighbouring cells increase by +1.
     """
 
-    arr = [[0 for row in range(n)] for column in range(n)]
+    arr = [[1 for row in range(n)] for column in range(n)]
     for num in range(k):
         x = random.randint(1,n-1)
         y = random.randint(1,n-1)
@@ -110,16 +110,16 @@ def player_choise():
     while True:
         try:
             print("Enter your cell you want to open :")
-            player_x= input("X: Enter numbers 1-9:")
-            player_Y= input("Y: Enter numbers 1-9:")
-            player_x=int(player_x)
-            player_Y=int(player_Y)
+            player_x= input("X: Enter numbers 1-10:")
+            player_Y= input("Y: Enter numbers 1-10:")
+            player_x=int(player_x) -1
+            player_Y=int(player_Y) -1
     
         except ValueError:
-            print("Please enter a number between 1-9.")
+            print("Please enter a number between 1-10.")
             continue
             
-        if 0 < player_x <=9 and 0 < player_Y <=9:
+        if player_x <=9 and player_Y <=9:
             print("its working!!")
             x=player_x
             y=player_Y
@@ -145,7 +145,7 @@ def player_choise():
                 restart()
                        
 
-        else: print(f"Please enter a number between 1-9. You entered:{player_x} and {player_Y}.")
+        else: print(f"Please enter a number between 1-10. You entered:{player_x +1} and {player_Y +1}.")
         
     return False
 
