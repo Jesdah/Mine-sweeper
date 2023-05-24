@@ -36,6 +36,7 @@ def minesweeper(n,k):
     Builds a game board 10*10 and randomly places a bomb
     and the neighbouring cells increase by +1.
     """
+    
 
     arr = [[1 for row in range(n)] for column in range(n)]
     for num in range(k):
@@ -80,6 +81,7 @@ def player_board(n):
     """
     arr = [["*" for row in range(n)] for column in range(n)]
     return arr
+    
 
 def reviel_board(map):
     """
@@ -90,13 +92,9 @@ def reviel_board(map):
     for row in map:
         print("\t".join(str(cell) for cell in row))
         print("")
+    
+     
 
-def CheckWon(map):
-    for row in map:
-        for cell in row:
-            if cell == '*':
-                return False
-    return True
 
 hidden_board=minesweeper(10,20)
 player_check=player_board(10)
@@ -106,6 +104,7 @@ def player_choise():
     to open cells.
     """
     global score
+    
     reviel_board(player_check)
     while True:
         try:
@@ -164,7 +163,14 @@ def restart():
         else: print(f"Please answer Yes or No, You entered:{restart_game}")
     return False    
 
-    
+def coordinates():
+    """
+    https://stackoverflow.com/questions/9989334/create-nice-column-output-in-python
+    """
+    numbers = ["1", "2", "3","4","5","6","7","8","9","10"] 
+    col_width = max(len(word) for row in numbers for word in row)  
+    for row in numbers:
+        print("".join(word.ljust(col_width) for word in row))
      
 
 def main():
@@ -172,7 +178,7 @@ def main():
     Runs all functions.
     """
     minesweeper_heading()
-    
+    coordinates()
     
     player_choise()
 
