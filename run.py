@@ -23,6 +23,7 @@ def minesweeper_heading():
                 "Safe squares have numbers telling you how many mines touch the square.\n"
                 "You can use the number clues to solve the game by opening all of the safe squares.\n"
                 "If you click on a mine you lose the game!")
+                continue
         except NameError as e:
             print(f"You must enter '1' or '2'. You entered:{e}")
         else: print(f"You must enter '1' or '2'. You entered:{start_instructions}")
@@ -94,17 +95,24 @@ def reviel_board(map):
         print("")
     
      
-
+def coordinates():
+    """
+    https://stackoverflow.com/questions/9989334/create-nice-column-output-in-python
+    """
+    numbers = ["1", "2", "3","4","5","6","7","8","9","10"] 
+    col_width = max(len(word) for row in numbers for word in row)  
+    for row in numbers:
+        print("".join(word.ljust(col_width) for word in row))
 
 hidden_board=minesweeper(10,20)
 player_check=player_board(10)
+# user_coordinates=coordinates()
 def player_choise():
     """
     Allows the user to select coordinates on the board
     to open cells.
     """
     global score
-    
     reviel_board(player_check)
     while True:
         try:
@@ -163,14 +171,7 @@ def restart():
         else: print(f"Please answer Yes or No, You entered:{restart_game}")
     return False    
 
-def coordinates():
-    """
-    https://stackoverflow.com/questions/9989334/create-nice-column-output-in-python
-    """
-    numbers = ["1", "2", "3","4","5","6","7","8","9","10"] 
-    col_width = max(len(word) for row in numbers for word in row)  
-    for row in numbers:
-        print("".join(word.ljust(col_width) for word in row))
+
      
 
 def main():
@@ -178,7 +179,6 @@ def main():
     Runs all functions.
     """
     minesweeper_heading()
-    coordinates()
     
     player_choise()
 
