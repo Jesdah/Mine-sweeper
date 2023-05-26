@@ -113,6 +113,8 @@ def player_choise():
     Allows the user to select coordinates on the board
     to open cells.
     """
+    minesweeper(10,20)
+    player_board(10)
     while True:
         global score
         reviel_board(player_check)
@@ -164,7 +166,8 @@ def restart():
         restart_game = input("Restart? Y/N:")
                             
         if restart_game == "y":
-            return restart_minesweeeper
+            score=0
+            main()
             print('yes!')
 
         if restart_game == "n":
@@ -185,11 +188,11 @@ def main():
     """
     Runs all functions.
     """
-    while restart_minesweeeper:
-        score=0
-        minesweeper_heading()
-        
-        player_choise()
+    score=0
+    minesweeper_heading()
+    minesweeper(10,20)
+    player_board(10)
+    
+    player_choise()
 
-main=main()
-# print(main)
+main()
