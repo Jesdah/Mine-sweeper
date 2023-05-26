@@ -1,8 +1,9 @@
 import math  
 import random  
 import pyfiglet
- 
+
 result = pyfiglet.figlet_format("Mine Sweeper")
+restart_minesweeeper = True
 score = 0
 def minesweeper_heading():
     """
@@ -39,7 +40,7 @@ def minesweeper(n,k):
     """
     
 
-    arr = [[1 for row in range(n)] for column in range(n)]
+    arr = [[0 for row in range(n)] for column in range(n)]
     for num in range(k):
         x = random.randint(1,n-1)
         y = random.randint(1,n-1)
@@ -112,9 +113,10 @@ def player_choise():
     Allows the user to select coordinates on the board
     to open cells.
     """
-    global score
-    reviel_board(player_check)
     while True:
+        global score
+        reviel_board(player_check)
+    
         try:
             print("Enter your cell you want to open :")
             player_x= input("X: Enter numbers 1-10:")
@@ -156,13 +158,14 @@ def player_choise():
         
     return False
 
-    
+
 def restart():
     while True:
         restart_game = input("Restart? Y/N:")
                             
         if restart_game == "y":
-            main()
+            return restart_minesweeeper
+            print('yes!')
 
         if restart_game == "n":
             print("Exit program.")
@@ -171,16 +174,22 @@ def restart():
         else: print(f"Please answer Yes or No, You entered:{restart_game}")
     return False    
 
-
+# if __name__ == "__main__":
+#     try:
+#         player_choise()
+#     except KeyboardInterrupt:
+#         print('\nEnd of Game. Bye Bye!')
      
 
 def main():
     """
     Runs all functions.
     """
-    minesweeper_heading()
-    
-    player_choise()
+    while restart_minesweeeper:
+        score=0
+        minesweeper_heading()
+        
+        player_choise()
 
-main()
-print(main)
+main=main()
+# print(main)
