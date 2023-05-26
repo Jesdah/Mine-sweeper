@@ -1,6 +1,7 @@
 import math  
 import random  
 import pyfiglet
+from colorama import Fore, Back, Style
 
 result = pyfiglet.figlet_format("Mine Sweeper")
 restart_minesweeeper = True
@@ -127,6 +128,7 @@ def player_choise():
     
         except ValueError:
             print("Please enter a number between 1-6.")
+            print('1_______2_______3_______4_______5_______6')
             continue
             
         if player_x <=5 and player_Y <=5:
@@ -143,7 +145,7 @@ def player_choise():
                 # reviel_board(player_check)
                 score += 1
                 print(f"Score: {score}")
-                print('1_______2_______3_______4_______5_______6')
+                # print('1_______2_______3_______4_______5_______6')
                 
             if hidden_board[x][y]=="X":
                 print('1_______2_______3_______4_______5_______6')
@@ -157,6 +159,7 @@ def player_choise():
                        
 
         else: print(f"Please enter a number between 1-6. You entered:{player_x +1} and {player_Y +1}.")
+        print('1_______2_______3_______4_______5_______6')
         
     return False
 
