@@ -39,17 +39,23 @@ def minesweeper(n,k):
     and the neighbouring cells increase by +1.
     """
     arr = [[0 for row in range(n)] for column in range(n)]
+    # gridsize=len(arr)
+    # print(gridsize)
+    # print(arr)
     
+       
+    # list_one=arr[0]
+    # list_two=arr[1]
+    # list_three=arr[2]
+    # list_four=arr[3]
+    # list_five=arr[4]
+    # list_six=arr[5]
+    # master_list=list_one+list_two+list_three+list_four+list_five+list_six
+    # print(list_one)
+
     for num in range(k):
-        # print(arr)
-        # print(arr[0])
-        # print(arr[1])
-        # print(arr[2])
-        # print(arr[3])
-        # print(arr[4])
-        # print(arr[5])
-        # set(zip(arr))
-        print(arr)
+
+        # print(master_list)
         x = random.randint(1,n-1)
         y = random.randint(1,n-1)
         arr[y][x] = 'X'
@@ -90,9 +96,9 @@ def player_board(n):
     Hides the real values from the player.
     """
     
-    arr = [["?" for row in range(1,7)] for column in range(1,7)]
+    arr = [["?" for row in range(n)] for column in range(n)]
         
-    print(arr)
+    # print(arr)
            
           
     return arr
@@ -105,12 +111,15 @@ def reviel_board(map):
     This code is from:
      https://medium.com/swlh/this-is-how-to-create-a-simple-minesweeper-game-in-python-af02077a8de
     """
-    numbers=["1", "2", "3", "4", "5", "6"]
+    # numbers=["1", "2", "3", "4", "5", "6"]
     for row in map:
          
         print("\t".join(str(cell) for cell in row))
         print("------------------------------------------")
-    
+    # for i in "123456":
+    #         if i== "123456":
+                
+    #             print(i)
     
         
         
