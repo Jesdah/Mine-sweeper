@@ -42,12 +42,14 @@ def minesweeper(n,k):
     
     for num in range(k):
         # print(arr)
-        print(arr[0])
-        print(arr[1])
-        print(arr[2])
-        print(arr[3])
-        print(arr[4])
-        print(arr[5])
+        # print(arr[0])
+        # print(arr[1])
+        # print(arr[2])
+        # print(arr[3])
+        # print(arr[4])
+        # print(arr[5])
+        # set(zip(arr))
+        print(arr)
         x = random.randint(1,n-1)
         y = random.randint(1,n-1)
         arr[y][x] = 'X'
@@ -105,21 +107,9 @@ def reviel_board(map):
     """
     numbers=["1", "2", "3", "4", "5", "6"]
     for row in map:
-        for i in numbers:
-            if i=="6":
-                continue
-                if i== "5":
-                    continue
-                    if i== "4":
-                        continue
-                        if i== "3":
-                            continue
-                            if i== "2":
-                                continue
-                                if i== "1":
-                                    break  
-            print(i,"\t".join(str(cell) for cell in row))
-            print("------------------------------------------")
+         
+        print("\t".join(str(cell) for cell in row))
+        print("------------------------------------------")
     
     
         
@@ -135,16 +125,15 @@ def reviel_board(map):
 #     for row in numbers:
 #         print("".join(word.ljust(col_width) for word in row))
 
-hidden_board=minesweeper(6,8)
-player_check=player_board(6)
+
 # user_coordinates=coordinates()
 def player_choise():
     """
     Allows the user to select coordinates on the board
     to open cells.
     """
-    # minesweeper(10,20)
-    # player_board(10)
+    hidden_board=minesweeper(6,8)
+    player_check=player_board(6)
     while True:
         global score
         
@@ -200,6 +189,7 @@ def restart():
         restart_game = input("Restart? Y/N:")
                             
         if restart_game == "y":
+            global score
             score=0
             main()
             print('yes!')
