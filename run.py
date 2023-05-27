@@ -45,6 +45,7 @@ def minesweeper(n,k):
         x = random.randint(1,n-1)
         y = random.randint(1,n-1)
         arr[y][x] = 'X'
+        
         if (x >=0 and x <= n-2) and (y >= 0 and y <= n-1):
             if arr[y][x+1] != 'X':
                 arr[y][x+1] += 1 # center right
@@ -54,14 +55,14 @@ def minesweeper(n,k):
         if (x >= 1 and x <= n-1) and (y >= 1 and y <= n-1):
             if arr[y-1][x-1] != 'X':
                 arr[y-1][x-1] += 1 # top left
- 
+
         if (x >= 0 and x <= n-2) and (y >= 1 and y <= n-1):
             if arr[y-1][x+1] != 'X':
                 arr[y-1][x+1] += 1 # top right
         if (x >= 0 and x <= n-1) and (y >= 1 and y <= n-1):
             if arr[y-1][x] != 'X':
                 arr[y-1][x] += 1 # top center
- 
+
         if (x >=0 and x <= n-2) and (y >= 0 and y <= n-2):
             if arr[y+1][x+1] != 'X':
                 arr[y+1][x+1] += 1 # bottom right
@@ -80,7 +81,12 @@ def player_board(n):
     https://medium.com/swlh/this-is-how-to-create-a-simple-minesweeper-game-in-python-af02077a8de
     Hides the real values from the player.
     """
-    arr = [["?" for row in range(n)] for column in range(n)]
+    
+    arr = [["?" for row in range(1,7)] for column in range(1,7)]
+        
+    print(arr)
+           
+          
     return arr
     
     
@@ -91,9 +97,16 @@ def reviel_board(map):
     This code is from:
      https://medium.com/swlh/this-is-how-to-create-a-simple-minesweeper-game-in-python-af02077a8de
     """
-    for row in map:
-        print("\t".join(str(cell) for cell in row))
-        print("------------------------------------------")
+    for i in "123456":
+        if i=="123456":
+            break
+        for row in map:
+        
+            print(i,"\t".join(str(cell) for cell in row))
+            print("------------------------------------------")
+    
+    
+        
         
     
      
