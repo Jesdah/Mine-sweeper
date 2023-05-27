@@ -35,13 +35,13 @@ def minesweeper(n,k):
     """
     This code was taken from:
     https://medium.com/swlh/this-is-how-to-create-a-simple-minesweeper-game-in-python-af02077a8de
-    Builds a game board 10*10 and randomly places a bomb
+    Builds a game board 6*6 and randomly places a bomb
     and the neighbouring cells increase by +1.
     """
+    arr = [[0 for row in range(1,7)] for column in range(1,7)]
     
-
-    arr = [[0 for row in range(n)] for column in range(n)]
-    for num in range(k):
+    for num in range(1,7):
+        
         x = random.randint(1,n-1)
         y = random.randint(1,n-1)
         arr[y][x] = 'X'
@@ -80,8 +80,9 @@ def player_board(n):
     https://medium.com/swlh/this-is-how-to-create-a-simple-minesweeper-game-in-python-af02077a8de
     Hides the real values from the player.
     """
-    arr = [["*" for row in range(n)] for column in range(n)]
+    arr = [["?" for row in range(n)] for column in range(n)]
     return arr
+    
     
 
 def reviel_board(map):
@@ -92,7 +93,8 @@ def reviel_board(map):
     """
     for row in map:
         print("\t".join(str(cell) for cell in row))
-        print("")
+        print("------------------------------------------")
+        
     
      
 # def coordinates():
