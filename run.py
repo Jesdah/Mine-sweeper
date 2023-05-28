@@ -19,7 +19,7 @@ def minesweeper_heading():
     while True:
         try:
             start_instructions = input("Press 1 to start game\n"
-                                       "Press 2 for instructions:")
+                                       "Press 2 for instructions:\n")
             if start_instructions == "1":
                 print(top_row)  # Starts the game
                 break
@@ -50,14 +50,7 @@ def minesweeper(n):
     and the neighbouring cells increase by +1.
     """
 
-    arr = [
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-    ]
+    arr = [[0 for row in range(n)] for column in range(n)]
 
     for num in range(7):  # Generates "X" AKA Bombs
 
@@ -140,8 +133,8 @@ def player_choise():
             reviel_board(player_check)  # The player inputs thier guess
             print(Back.BLUE + "Enter your cell "
                   "you want to open: " + Style.RESET_ALL)
-            player_x = input("X: Enter numbers 1-6: ")
-            player_Y = input("Y: Enter numbers 1-6: ")
+            player_x = input("X: Enter numbers 1-6: \n")
+            player_Y = input("Y: Enter numbers 1-6: \n")
             player_x = int(player_x) - 1  # input "1"=0
             player_Y = int(player_Y) - 1
 
@@ -197,7 +190,7 @@ def restart():
     Allows the user to restart the game
     """
     while True:
-        restart_game = input("Restart? Y/N:")  # Yes or no?
+        restart_game = input("Restart? Y/N:\n")  # Yes or no?
 
 # if yes
         if restart_game == "y":
