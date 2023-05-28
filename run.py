@@ -18,21 +18,27 @@ def minesweeper_heading():
     print(result)  # Says MineSweeper.
     while True:
         try:
-            start_instructions = input("Press 1 to start game\nPress 2 for instructions:")
+            start_instructions = input("Press 1 to start game\n"
+                                       "Press 2 for instructions:")
             if start_instructions == "1":
-                print(top_row) # Starts the game
+                print(top_row)  # Starts the game
                 break
             # Displayes the instuctions and then continue the loop
             if start_instructions == "2":
-                print("Minesweeper is a game where mines are hidden in a grid of squares.\n"
-                "Safe squares have numbers telling you how many mines touch the square.\n"
-                "You can use the number clues to solve the game by opening all of the safe squares.\n"
-                "If you click on a mine you lose the game!")
+                print("Minesweeper is a game where mines "
+                      "are hidden in a grid of squares.")
+                print("Safe squares have numbers telling you "
+                      "how many mines touch the square.")
+                print("You can use the number clues to solve the game "
+                      "by opening all of the safe squares.")
+                print("If you click on a mine you lose the game!")
                 continue
         except NameError as e:  # Ops something wrong
-            print(Back.RED + f"You must enter '1' or '2'. You entered:{e}" + Style.RESET_ALL)
+            print(Back.RED + "You must enter '1'"
+                  f"or '2'. You entered:{e}" + Style.RESET_ALL)
         else:
-            print(Back.RED + f"You must enter '1' or '2'. You entered:{start_instructions}" + Style.RESET_ALL)
+            print(Back.RED + f"You must enter '1' or"
+                  f"'2'. You entered:{start_instructions}" + Style.RESET_ALL)
     return False
 
 
@@ -53,7 +59,7 @@ def minesweeper(n):
         [0, 0, 0, 0, 0, 0],
     ]
 
-    for num in range(6):  # Generates "X" AKA Bombs
+    for num in range(7):  # Generates "X" AKA Bombs
 
         x = random.randint(0, n-1)
         y = random.randint(0, n-1)
@@ -132,24 +138,29 @@ def player_choise():
 
         try:
             reviel_board(player_check)  # The player inputs thier guess
-            print(Back.BLUE + "Enter your cell you want to open: " + Style.RESET_ALL)
+            print(Back.BLUE + "Enter your cell "
+                  "you want to open: " + Style.RESET_ALL)
             player_x = input("X: Enter numbers 1-6: ")
             player_Y = input("Y: Enter numbers 1-6: ")
             player_x = int(player_x) - 1  # input "1"=0
             player_Y = int(player_Y) - 1
 
         except ValueError:  # Oops!
-            print(Back.RED + "Please enter a number between 1-6." + Style.RESET_ALL)
+            print(Back.RED + "Please enter a number "
+                  "between 1-6." + Style.RESET_ALL)
             print(top_row)
             continue
 
+# Assign player input to var "X" or "Y" to be checked below
         if player_x <= 5 and player_Y <= 5:
-            x = player_x  # Assign player input to var "X" or "Y" to be checked below
+            x = player_x
             y = player_Y
-            # Checks if hiddenboard and playercheck is equal, if it  is an error is raised
+
+# Checks if hiddenboard and playercheck is equal, if it  is an error is raised
             if hidden_board[x][y] == player_check[x][y]:
                 print(f"Score: {score}")  # Dislpays scoreboard
-                print(Back.RED + "These coordinates have already been used, try again!" + Style.RESET_ALL)
+                print(Back.RED + "These coordinates have "
+                      "already been used, try again!" + Style.RESET_ALL)
                 print(top_row)
                 continue
 
@@ -172,8 +183,10 @@ def player_choise():
                 print(f"Score: {score}")
                 restart()  # Calls the restart function
 
-        else: 
-            print(Back.RED + f"Please enter a number between 1-6. You entered:{player_x + 1} and {player_Y + 1}." + Style.RESET_ALL)
+        else:
+            print(Back.RED + "Please enter a number between 1-6. "
+                  f"You entered:{player_x + 1} "
+                  f"and {player_Y + 1}." + Style.RESET_ALL)
         print(top_row)
 
     return False
@@ -198,7 +211,7 @@ def restart():
             exit()  # Exit program
 
         # Error message
-        else: 
+        else:
             print(f"Please answer Yes or No, You entered:{restart_game}")
     return False
 
@@ -211,7 +224,7 @@ def main():
     minesweeper_heading()
     minesweeper(6)
     player_board()
-    
     player_choise()
+
 
 main()
