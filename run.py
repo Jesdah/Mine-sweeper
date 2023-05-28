@@ -2,7 +2,8 @@ import math
 import random  
 import pyfiglet
 from colorama import Fore, Back, Style
-
+top_row=Fore.BLUE+'1_______2_______3_______4_______5_______6'+Style.RESET_ALL
+BOMB= Back.RED+"X"+Style.RESET_ALL
 result = pyfiglet.figlet_format("Mine Sweeper")
 restart_minesweeeper = True
 score = 0
@@ -17,7 +18,8 @@ def minesweeper_heading():
             start_instructions= input("Press 1 to start game\nPress 2 for instructions:")
             print(start_instructions)
             if start_instructions== "1":
-                print('1_______2_______3_______4_______5_______6')
+                print(top_row)
+                print(Style.RESET_ALL)
                 break
             if start_instructions=="2":
                 print("Minesweeper is a game where mines are hidden in a grid of squares.\n"
@@ -38,53 +40,48 @@ def minesweeper(n,k):
     Builds a game board 6*6 and randomly places a bomb
     and the neighbouring cells increase by +1.
     """
-    arr = [[0 for row in range(n)] for column in range(n)]
-    # gridsize=len(arr)
-    # print(gridsize)
-    # print(arr)
     
-       
-    # list_one=arr[0]
-    # list_two=arr[1]
-    # list_three=arr[2]
-    # list_four=arr[3]
-    # list_five=arr[4]
-    # list_six=arr[5]
-    # master_list=list_one+list_two+list_three+list_four+list_five+list_six
-    # print(list_one)
-
-    for num in range(k):
-
-        # print(master_list)
+    arr= [
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+    ]
+    
+    for num in range(5):
+        
         x = random.randint(1,n-1)
         y = random.randint(1,n-1)
-        arr[y][x] = 'X'
+        arr[y][x] = BOMB
+        # print(arr)
         
         if (x >=0 and x <= n-2) and (y >= 0 and y <= n-1):
-            if arr[y][x+1] != 'X':
+            if arr[y][x+1] != BOMB:
                 arr[y][x+1] += 1 # center right
         if (x >=1 and x <= n-1) and (y >= 0 and y <= n-1):
-            if arr[y][x-1] != 'X':
+            if arr[y][x-1] != BOMB:
                 arr[y][x-1] += 1 # center left
         if (x >= 1 and x <= n-1) and (y >= 1 and y <= n-1):
-            if arr[y-1][x-1] != 'X':
+            if arr[y-1][x-1] != BOMB:
                 arr[y-1][x-1] += 1 # top left
 
         if (x >= 0 and x <= n-2) and (y >= 1 and y <= n-1):
-            if arr[y-1][x+1] != 'X':
+            if arr[y-1][x+1] != BOMB:
                 arr[y-1][x+1] += 1 # top right
         if (x >= 0 and x <= n-1) and (y >= 1 and y <= n-1):
-            if arr[y-1][x] != 'X':
+            if arr[y-1][x] != BOMB:
                 arr[y-1][x] += 1 # top center
 
         if (x >=0 and x <= n-2) and (y >= 0 and y <= n-2):
-            if arr[y+1][x+1] != 'X':
+            if arr[y+1][x+1] != BOMB:
                 arr[y+1][x+1] += 1 # bottom right
         if (x >= 1 and x <= n-1) and (y >= 0 and y <= n-2):
-            if arr[y+1][x-1] != 'X':
+            if arr[y+1][x-1] != BOMB:
                 arr[y+1][x-1] += 1 # bottom left
         if (x >= 0 and x <= n-1) and (y >= 0 and y <= n-2):
-            if arr[y+1][x] != 'X':
+            if arr[y+1][x] != BOMB:
                 arr[y+1][x] += 1 # bottom center
     return arr
 
@@ -96,7 +93,18 @@ def player_board(n):
     Hides the real values from the player.
     """
     
-    arr = [["?" for row in range(n)] for column in range(n)]
+    arr= [
+        ["?","?","?","?","?","?"],
+        ["?","?","?","?","?","?"],
+        ["?","?","?","?","?","?"],
+        ["?","?","?","?","?","?"],
+        ["?","?","?","?","?","?"],
+        ["?","?","?","?","?","?"],
+    ]
+    # for col in range(1, 7):
+    #     print(col)
+    #     insert_symbol = " "
+    # arr = [["?" for row in range(n)] for column in range(n)]
         
     # print(arr)
            
@@ -113,13 +121,13 @@ def reviel_board(map):
     """
     # numbers=["1", "2", "3", "4", "5", "6"]
     for row in map:
-         
+        # for i in "1":
+            
         print("\t".join(str(cell) for cell in row))
         print("------------------------------------------")
-    # for i in "123456":
-    #         if i== "123456":
+
                 
-    #             print(i)
+                
     
         
         
@@ -149,15 +157,16 @@ def player_choise():
     
         try:
             reviel_board(player_check)
-            print("Enter your cell you want to open :")
-            player_x= input("X: Enter numbers 1-6:")
-            player_Y= input("Y: Enter numbers 1-6:")
+            print(Back.BLUE+"Enter your cell you want to open: "+Style.RESET_ALL)
+            player_x= input("X: Enter numbers 1-6: ")
+            player_Y= input("Y: Enter numbers 1-6: ")
             player_x=int(player_x) -1
             player_Y=int(player_Y) -1
     
         except ValueError:
-            print("Please enter a number between 1-6.")
-            print('1_______2_______3_______4_______5_______6')
+            print(Back.RED+"Please enter a number between 1-6."+Style.RESET_ALL)
+            print(top_row)
+            # print(Style.RESET_ALL)
             continue
             
         if player_x <=5 and player_Y <=5:
@@ -166,29 +175,32 @@ def player_choise():
             y=player_Y
 
             if hidden_board[x][y] == player_check[x][y]:
-                print("These coordinates have already been used, try again!")
+                print(f"Score: {score}")
+                print(Back.RED+"These coordinates have already been used, try again!"+Style.RESET_ALL)
+                print(top_row)
+                # print(Style.RESET_ALL)
                 continue
 
-            if hidden_board[x][y]!="X":
+            if hidden_board[x][y]!=BOMB:
                 player_check[x][y] = hidden_board[x][y]
                 # reviel_board(player_check)
                 score += 1
                 print(f"Score: {score}")
-                # print('1_______2_______3_______4_______5_______6')
                 
-            if hidden_board[x][y]=="X":
-                print('1_______2_______3_______4_______5_______6')
+            if hidden_board[x][y]==BOMB:
+                print(top_row)
                 reviel_board(hidden_board)
-                print("Game over!")
+                print(Back.RED+"Game over!"+Style.RESET_ALL)
                 restart()
                 
             if score == 28:
-                print("You won!!")
+                print(Back.GREEN+"You won!!"+Style.RESET_ALL)
                 restart()
                        
 
-        else: print(f"Please enter a number between 1-6. You entered:{player_x +1} and {player_Y +1}.")
-        print('1_______2_______3_______4_______5_______6')
+        else: print(Back.RED+f"Please enter a number between 1-6. You entered:{player_x +1} and {player_Y +1}."+Style.RESET_ALL)
+        print(top_row)
+        
         
     return False
 
