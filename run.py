@@ -50,7 +50,14 @@ def minesweeper(n):
     and the neighbouring cells increase by +1.
     """
 
-    arr = [[0 for row in range(n)] for column in range(n)]
+    arr = [
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+    ]
 
     for num in range(7):  # Generates "X" AKA Bombs
 
@@ -133,10 +140,10 @@ def player_choise():
             reviel_board(player_check)  # The player inputs thier guess
             print(Back.BLUE + "Enter your cell "
                   "you want to open: " + Style.RESET_ALL)
-            player_x = input("X: Enter numbers 1-6: \n")
-            player_Y = input("Y: Enter numbers 1-6: \n")
-            player_x = int(player_x) - 1  # input "1"=0
-            player_Y = int(player_Y) - 1
+            player_first = input("X: Enter numbers 1-6: \n")      
+            player_second = input("Y: Enter numbers 1-6: \n")
+            player_first = int(player_first) - 1  # input "1"=0
+            player_second = int(player_second) - 1
 
         except ValueError:  # Oops!
             print(Back.RED + "Please enter a number "
@@ -145,9 +152,9 @@ def player_choise():
             continue
 
 # Assign player input to var "X" or "Y" to be checked below
-        if player_x <= 5 and player_Y <= 5:
-            x = player_x
-            y = player_Y
+        if player_first <= 5 and player_second <= 5:
+            y = player_first
+            x =  player_second
 
 # Checks if hiddenboard and playercheck is equal, if it  is an error is raised
             if hidden_board[x][y] == player_check[x][y]:
