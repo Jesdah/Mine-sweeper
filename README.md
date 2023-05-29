@@ -97,10 +97,14 @@ All cells were checked with no issues.
 | Command Line Input | Input  |      x=1 y="1" | Error message                           | As desired | Yes  |
 | Command Line Input | Input  |      x=1 y=a   | Error message                           | As desired | Yes  |
 
-When testing the inputs i found that when entering -7 broke the game this was fixed by adding this code on line i56:
+When testing the inputs i found that when entering -7 broke the game this was fixed by adding this code on line 156:
 ```
 if 0 <= player_first <= 5 and 0 <= player_second <= 5:
 ```
+### Lucidchart.
+![Screen shot of lucidchart](assets/images/minesweeper-lucidshart.png)<br>
+Something that I have found very useful is Lucidchart. Lucidchart has helped a lot in that I've been able to draw out how I intended my app to work and how the logic should flow, every time I've gotten stuck I've always been able to use my Lucidchart to get back on track.
+
 ### Validator Testing
 - CI Python Linter
   - No errors were returned when passing through [CI Python Linter](https://pep8ci.herokuapp.com/#)
