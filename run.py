@@ -3,7 +3,8 @@ import pyfiglet
 from colorama import Fore, Back, Style
 
 # Declair some variables
-top_row = Fore.BLUE + '1_______2_______3_______4_______5_______6' + Style.RESET_ALL
+top_row = Fore.BLUE + (
+     '1_______2_______3_______4_______5_______6' + Style.RESET_ALL)
 BOMB = Back.RED + "X" + Style.RESET_ALL
 result = pyfiglet.figlet_format("Mine Sweeper")
 
@@ -180,7 +181,7 @@ def player_choise():
                 restart()
 
                 # Checks if the user has reached the score of 28
-            if score == 28:
+            if score == 32:
                 print(Back.GREEN + "You won!!" + Style.RESET_ALL)
                 print(f"Score: {score}")
                 restart()  # Calls the restart function
