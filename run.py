@@ -19,7 +19,7 @@ def minesweeper_heading():
         try:
             start_instructions = input("Press 1 to start game\n"
                                        "Press 2 for instructions:\n")
-            if start_instructions == "1":  # Starts the game
+            if start_instructions == "1":# Starts the game
                 break
             # Displayes the instuctions and then continue the loop
             if start_instructions == "2":
@@ -56,7 +56,7 @@ def minesweeper(n):
         [0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0],
     ]
-
+    
     r = range(4)
     for num in r:  # Generates "X" AKA Bombs
         x = random.randint(0, n-1)
@@ -152,7 +152,7 @@ def player_choise():
 # Assign player input to var "X" or "Y" to be checked below
         if 0 <= player_first <= 5 and 0 <= player_second <= 5:
             y = player_first
-            x = player_second
+            x =  player_second
 
 # Checks if hiddenboard and playercheck is equal, if it  is an error is raised
             if hidden_board[x][y] == player_check[x][y]:
