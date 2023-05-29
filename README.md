@@ -1,43 +1,41 @@
-![screenshot of the site on different devices](/assets/images/am-i-responsive.png)
 # Welcome to MineSweeper! 
 ## This is an app for those who whant to train thier cognitive ability.
 Minesweeper is a game for people of all ages, here you can train your cognitive skills or just pass the time, maybe before the next meeting.
 ### Start Heading.
-![screenshot of the navbar](/assets/images/navbar.png)
+![screenshot of the Start Heading](assets/images/minesweeper-heading.png)<br>
 * The title should make it clear to the user which game he or she is playing, as well as give an aesthetic expression.
 * The player has two choices, start the game or choose to read instructions before he or she starts playing.
 ### Instructions.
-![screenshot of two old cottages with grassroof](/assets/images/screenshot-cottage.png)
+![screenshot of Instructions](assets/images/minesweeper-instructions.png)<br>
 Instructions give the player a chance to read up on what the game is about and gain an understanding of the rules of the game.
 
 ### Minesweeper board.
-![Screenshot of some welcome text](/assets/images/welcome.png)<br>
+![Screenshot of Minesweeper board](assets/images/minesweeper-hiddenboard.png)<br>
 Here we see 6 by 6 symbols and behind some of these symbols there are bombs hiding.
 
 ### Inputs X and Y.
-![Screenshot of the stone footer with icons to social media and contact information](/assets/images/stone-footer.png)
 * The app asks for 2 inputs, one on the x-axis and one on the y-axis.
 * if the player has not clicked on a bomb, the game continues and the player gets a point.
 * If the player reaches 32 points, the player wins and can then choose whether to restart or end the game.
 
 ### Restart.
-![Screenshot of a vikingship in a lake](/assets/images/adventure-image.png)
-![Screenshot of the text on Event page](/assets/images/adventure-text.png)
+![Screenshot of gameover](assets/images/minesweeper-gameover.png)<br>
 If the player clicks on a bomb, the player is given an option to choose to restart or quit the game.
 
 ## Error catching.
-![A small screenshot of two images in gallery](/assets/images/gallery-example.png)
 In order to prevent the game from crashing, a lot of time has been spent on making sure that the player cannot submit values ​​that cause the app to crash, but at the same time reduce user misunderstandings. The last thing we want is for the player not to believe that the game works as it should.
 
 ### Error catch 1(Start game/ Instructions).
-![Screenshot of the signup page](/assets/images/signup-girl.png)
+![Screenshot of Error message on the start screen](assets/images/minesweeper-instructions-error.png)<br>
 The app asks for a variable either "1" or "2" the player presses something else a message is displayed explaining what is wrong and letting the player try again.
 
 ### Error catch 2 (Input X and Y).
-![Screenshot of the thank you text](/assets/images/thank-you.png)<br>
+![A screenshot of error text](assets/images/minesweeper-errorinput.png)<br>
+![A screenshot of same coordinates error text](assets/images/minesweeper-samecoor.png)<br>
 The app asks the player to enter a number between 1-6 on the x-axis and a number between 1-6 on the y-axis. If the player writes, for example, a letter, the player is informed that the game is looking for a number between 1-6.
-
+If the player uses the same coordinates multiple times, the app will react to that as well.
 ### Error catch 3 (Restart).
+![A screenshot of error text](assets/images/minesweeper-gameover-error.png)<br>
 The player has clicked on a bomb which means the game is over. he or she is asked if you want to continue playing or quit. The player must then enter "y" or "n" if the player writes something else, for example a number or several letters, a warning message will be displayed.
 ### Existing features.
 * input validation
@@ -106,6 +104,7 @@ if 0 <= player_first <= 5 and 0 <= player_second <= 5:
 ### Validator Testing
 - CI Python Linter
   - No errors were returned when passing through [CI Python Linter](https://pep8ci.herokuapp.com/#)
+  ![A screenshot of validator result](assets/images/minesweeper-validator.png)
 ### Unfixed Bugs
 I have had a lot of trouble with a bug in the offset logic. It manifested itself by giving too many points to the numbers around a bomb. I then lowered the number of bombs on the playing field, which has resulted in the bug returning much less often.
 ### Deployment.
@@ -113,7 +112,7 @@ The following git commands were used throughout development to push code to the 
 
 ```git add <file>``` - This command was used to add the file(s) to the staging area before they are committed.<br>
 ```git commit -m “commit message”``` - This command was used to commit changes to the local repository queue ready for the final step.<br>
-```git push``` - This command was used to push all committed code to the remote repository on github.
+```git push``` - This command was used to push all commited code to the remote repository on github.
 ### Deployment
 - Use the following steps to deploy the poject to Heroku:
 1. Use the "pip freeze -- local > requirements.txt" command in the gitPod terminal; to save any libraries that need to be installed to the project files in Heroku.
