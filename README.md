@@ -1,7 +1,7 @@
 ![screenshot of the site on different devices](/assets/images/am-i-responsive.png)
-# welcome to MineSweeper! 
+# Welcome to MineSweeper! 
 ## This is an app for those who whant to train thier cognitive ability.
-minesweeper is a game for people of all ages, here you can train your cognitive skills or just pass the time, maybe before the next meeting.
+Minesweeper is a game for people of all ages, here you can train your cognitive skills or just pass the time, maybe before the next meeting.
 ### Start Heading.
 ![screenshot of the navbar](/assets/images/navbar.png)
 * The title should make it clear to the user which game he or she is playing, as well as give an aesthetic expression.
@@ -18,7 +18,7 @@ Here we see 6 by 6 symbols and behind some of these symbols there are bombs hidi
 ![Screenshot of the stone footer with icons to social media and contact information](/assets/images/stone-footer.png)
 * The app asks for 2 inputs, one on the x-axis and one on the y-axis.
 * if the player has not clicked on a bomb, the game continues and the player gets a point.
-* If the player reaches 28 points, the player wins and can then choose whether to restart or end the game.
+* If the player reaches 32 points, the player wins and can then choose whether to restart or end the game.
 
 ### Restart.
 ![Screenshot of a vikingship in a lake](/assets/images/adventure-image.png)
@@ -40,19 +40,23 @@ The app asks the player to enter a number between 1-6 on the x-axis and a number
 ### Error catch 3 (Restart).
 The player has clicked on a bomb which means the game is over. he or she is asked if you want to continue playing or quit. The player must then enter "y" or "n" if the player writes something else, for example a number or several letters, a warning message will be displayed.
 ### Existing features.
-* left blank
+* input validation
+* offset logic
+* Restart function
 ### Features left to implement.
-Left blank
+* Difficulty setting.
+* Score board.
 ### Technologies.
 * Python
     * The structure of the app was developed using Python as the main language.
 * Git
     * Used to commit and push code during the development of the Website
 * Git hub
-    * Source code is hosted on GitHub and delpoyed using Git Pages.
+    * Source code is hosted on GitHub.
+* Heroku
+    * The app is deployed with Heroku
 # Testing.
 ## Manual testing.
-left blank
 ### Test cells:
 | Test Item          | Method |  Input details | Desired Result                          | Result     | Pass |
 | ------------------ | ------ | -------------- | --------------------------------------- | ---------- | ---- |
@@ -99,8 +103,6 @@ When testing the inputs i found that when entering -7 broke the game this was fi
 ```
 if 0 <= player_first <= 5 and 0 <= player_second <= 5:
 ```
-
-
 ### Validator Testing
 - CI Python Linter
   - No errors were returned when passing through [CI Python Linter](https://pep8ci.herokuapp.com/#)
@@ -126,7 +128,7 @@ The following git commands were used throughout development to push code to the 
 10. Click enable automatic deploys and then deploy branch.
 11. Wait for the app to build and then click on the "View" link. 
 
-The live link can be found here. https://minesweeper-project3.herokuapp.com/
+The live link can be found [here](https://minesweeper-project3.herokuapp.com/).
 
 ### Clone the Repository Code Locally
 Navigate to the GitHub Repository you want to clone to use locally:
