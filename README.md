@@ -1,5 +1,5 @@
 # Welcome to MineSweeper! 
-## This is an app for those who whant to train thier cognitive ability.
+## This is an app for you who want to train your cognitive ability.
 Minesweeper is a game for people of all ages, here you can train your cognitive skills or just pass the time, maybe before the next meeting.
 ### Start Heading.
 ![screenshot of the Start Heading](assets/images/minesweeper-heading.png)<br>
