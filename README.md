@@ -38,45 +38,62 @@ The app asks for a variable either "1" or "2" the player presses something else 
 The app asks the player to enter a number between 1-6 on the x-axis and a number between 1-6 on the y-axis. If the player writes, for example, a letter, the player is informed that the game is looking for a number between 1-6.
 
 ### Error catch 3 (Restart).
-
+The player has clicked on a bomb which means the game is over. he or she is asked if you want to continue playing or quit. The player must then enter "y" or "n" if the player writes something else, for example a number or several letters, a warning message will be displayed.
 ### Existing features.
-* Responsive design
-* Signup form and thank you page
+* left blank
 ### Features left to implement.
-I would like to implement IFRAME in the #contact section with a working map.
+Left blank
 ### Technologies.
-* HTML
-    * The structure of the Website was developed using HTML as the main language.
-* CSS
-    * The website was styled using css in a seperate file.
+* Python
+    * The structure of the app was developed using Python as the main language.
 * Git
     * Used to commit and push code during the development of the Website
 * Git hub
     * Source code is hosted on GitHub and delpoyed using Git Pages.
-* [squoosh](https://squoosh.app/editor)
-    * Are used to compress images.
-* [pexels](https://www.pexels.com/sv-se/)
-    * Was used to download opensource images.
-* [Fontawesome](https://fontawesome.com/)
-    * Is used to download icons used in the footer.
-## Testing.
-### Responsivenes.
-All pages were tested to ensure responsiveness on screen sizes from 320px and upwards on Chrome and Edge.
-### Steps to test:
-1. Open browser and navigate to [Viking weekend](/index.html).
-2. Open the developer tools (right click and inspect)
-3. Set to responsive and decrease width to 320px
-4. Set the zoom to 50%
-5. Click and drag the responsive window to maximum width
-### Expected:
-Website is responsive on all screen sizes and no images are pixelated or stretched. No horizontal scroll is present. No elements overlap.
-### Actual:
-* Website behaved as expected with the exception of the flex-contact being pushed out to the left when the width is under 353px.
-    * This was fixed by setting #flex-contact width:120px and @media #social: removal of flex atributes and letter-spacing
-### Website was also opened on the following devices and no responsive issues were seen:
-* Samsung S22
-* Iphone 13
-* Lenovo ideapad S340
+# Testing.
+## Manual testing.
+left blank
+### Test cells:
+| Test Item          | Method |  Input details | Desired Result                          | Result     | Pass |
+| ------------------ | ------ | -------------- | --------------------------------------- | ---------- | ---- |
+| Command Line Input | Input  |      x=1 y=1   | The corresponding cell will display a 0 | As desired | Yes  |
+| Command Line Input | Input  |      x=2 y=2   | The corresponding cell will display a 0 | As desired | Yes  |
+| Command Line Input | Input  |      x=3 y=3   | The corresponding cell will display a 0 | As desired | Yes  |
+| Command Line Input | Input  |      x=4 y=4   | The corresponding cell will display a 0 | As desired | Yes  |
+| Command Line Input | Input  |      x=5 y=5   | The corresponding cell will display a 0 | As desired | Yes  |
+| Command Line Input | Input  |      x=6 y=6   | The corresponding cell will display a 0 | As desired | Yes  |
+
+All cells were checked with no issues.
+
+### Test cells X = symbols, dubble numbers and letters.
+| Test Item          | Method |  Input details | Desired Result                          | Result     | Pass |
+| ------------------ | ------ | -------------- | --------------------------------------- | ---------- | ---- |
+| Command Line Input | Input  |      x=! y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=" y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=# y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=¤ y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |  x=blank y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |     x=11 y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=a y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=[ y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=0 y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |    x="1" y=1   | Error message                           | As desired | Yes  |
+
+All cells were checked with no issues.
+
+### Test cells Y = symbols, dubble numbers and letters.
+| Test Item          | Method |  Input details | Desired Result                          | Result     | Pass |
+| ------------------ | ------ | -------------- | --------------------------------------- | ---------- | ---- |
+| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
 ## Lighthouse Testing.
 ![screenshot of index.html lighthouse score](/assets/images/lighthouse-index.png)<br>
 ![screenshot of events.html lighthouse score](/assets/images/lighthouse-event.png)<br>

@@ -58,39 +58,42 @@ def minesweeper(n):
         [0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0],
     ]
-
-    # for x in range(7):  # Generates "X" AKA Bombs
-    x = random.randint(0, n-1)
-    y = random.randint(0, n-1)
-    arr[y][x] = BOMB
+    
+    r = range(4)
+    for num in r:  # Generates "X" AKA Bombs
+        x = random.randint(0, n-1)
+        x = random.randint(0, n-1)
+        y = random.randint(0, n-1)
+        y = random.randint(0, n-1)
+        arr[y][x] = BOMB
 
 # Logic for the offsets.
-    if (x >= 0 and x <= n-2) and (y >= 0 and y <= n-1):
-        if arr[y][x+1] != BOMB:
-            arr[y][x+1] += 1  # center right
-    if (x >= 1 and x <= n-1) and (y >= 0 and y <= n-1):
-        if arr[y][x-1] != BOMB:
-            arr[y][x-1] += 1  # center left
-    if (x >= 1 and x <= n-1) and (y >= 1 and y <= n-1):
-        if arr[y-1][x-1] != BOMB:
-            arr[y-1][x-1] += 1  # top left
+        if (x >= 0 and x <= n-2) and (y >= 0 and y <= n-1):
+            if arr[y][x+1] != BOMB:
+                arr[y][x+1] += 1  # center right
+        if (x >= 1 and x <= n-1) and (y >= 0 and y <= n-1):
+            if arr[y][x-1] != BOMB:
+                arr[y][x-1] += 1  # center left
+        if (x >= 1 and x <= n-1) and (y >= 1 and y <= n-1):
+            if arr[y-1][x-1] != BOMB:
+                arr[y-1][x-1] += 1  # top left
 
-    if (x >= 0 and x <= n-2) and (y >= 1 and y <= n-1):
-        if arr[y-1][x+1] != BOMB:
-            arr[y-1][x+1] += 1  # top right
-    if (x >= 0 and x <= n-1) and (y >= 1 and y <= n-1):
-        if arr[y-1][x] != BOMB:
-            arr[y-1][x] += 1  # top center
+        if (x >= 0 and x <= n-2) and (y >= 1 and y <= n-1):
+            if arr[y-1][x+1] != BOMB:
+                arr[y-1][x+1] += 1  # top right
+        if (x >= 0 and x <= n-1) and (y >= 1 and y <= n-1):
+            if arr[y-1][x] != BOMB:
+                arr[y-1][x] += 1  # top center
 
-    if (x >= 0 and x <= n-2) and (y >= 0 and y <= n-2):
-        if arr[y+1][x+1] != BOMB:
-            arr[y+1][x+1] += 1  # bottom right
-    if (x >= 1 and x <= n-1) and (y >= 0 and y <= n-2):
-        if arr[y+1][x-1] != BOMB:
-            arr[y+1][x-1] += 1  # bottom left
-    if (x >= 0 and x <= n-1) and (y >= 0 and y <= n-2):
-        if arr[y+1][x] != BOMB:
-            arr[y+1][x] += 1  # bottom center
+        if (x >= 0 and x <= n-2) and (y >= 0 and y <= n-2):
+            if arr[y+1][x+1] != BOMB:
+                arr[y+1][x+1] += 1  # bottom right
+        if (x >= 1 and x <= n-1) and (y >= 0 and y <= n-2):
+            if arr[y+1][x-1] != BOMB:
+                arr[y+1][x-1] += 1  # bottom left
+        if (x >= 0 and x <= n-1) and (y >= 0 and y <= n-2):
+            if arr[y+1][x] != BOMB:
+                arr[y+1][x] += 1  # bottom center
 
     return arr
 
@@ -150,7 +153,7 @@ def player_choise():
             continue
 
 # Assign player input to var "X" or "Y" to be checked below
-        if player_first <= 5 and player_second <= 5:
+        if 0 <= player_first <= 5 and 0 <= player_second <= 5:
             y = player_first
             x =  player_second
 
