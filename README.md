@@ -20,20 +20,18 @@ Here we see 6 by 6 symbols and behind some of these symbols there are bombs hidi
 * if the player has not clicked on a bomb, the game continues and the player gets a point.
 * If the player reaches 28 points, the player wins and can then choose whether to restart or end the game.
 
-### Events.
+### Restart.
 ![Screenshot of a vikingship in a lake](/assets/images/adventure-image.png)
 ![Screenshot of the text on Event page](/assets/images/adventure-text.png)
-On the event pages we find two text sections that describe in more detail what the children can expect from the camp and to clarify this I have chosen to include seven pictures.
-At the bottom of the page there is a button that says "GALLERY", from there you can get to the GALLERY page.
-This is to the user's advantage because when you have read and checked the pictures, you can easily press the button to see even more pictures.
+If the player clicks on a bomb, the player is given an option to choose to restart or quit the game.
 
-### Gallery.
+## Error catching.
 ![A small screenshot of two images in gallery](/assets/images/gallery-example.png)
-The aim is to give children and parents an insight and to be able to identify the different activities and environments.
+In order to prevent the game from crashing, a lot of time has been spent on making sure that the player cannot submit values ​​that cause the app to crash, but at the same time reduce user misunderstandings. The last thing we want is for the player not to believe that the game works as it should.
 
-### Sign up.
+### Error catch 1(Start game/ Instructions).
 ![Screenshot of the signup page](/assets/images/signup-girl.png)
-The site allows parents/guardians to register their child or children in a simple way. The parent/guardian will need to fill in their full name, email, child's name, child's age, any allergies and which date they want to participate.
+The app asks for a variable either "1" or "2" the player presses something else a message is displayed explaining what is wrong and letting the player try again.
 
 ### Thank you.
 ![Screenshot of the thank you text](/assets/images/thank-you.png)<br>
