@@ -33,10 +33,9 @@ In order to prevent the game from crashing, a lot of time has been spent on maki
 ![Screenshot of the signup page](/assets/images/signup-girl.png)
 The app asks for a variable either "1" or "2" the player presses something else a message is displayed explaining what is wrong and letting the player try again.
 
-### Thank you.
+### Error catch 2 (Input X and Y).
 ![Screenshot of the thank you text](/assets/images/thank-you.png)<br>
-When you have pressed submit, you will be taken to the thank you page.
-This function ensures that the user receives a confirmation that the application has been submitted, after ten seconds they are sent back to the homepage.
+The app asks the player to enter a number between 1-6 on the x-axis and a number between 1-6 on the y-axis. If the player writes, for example, a letter, the player is informed that the game is looking for a number between 1-6.
 ### Existing features.
 * Responsive design
 * Signup form and thank you page
