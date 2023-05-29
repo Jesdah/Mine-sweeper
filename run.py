@@ -1,4 +1,3 @@
-import math
 import random
 import pyfiglet
 from colorama import Fore, Back, Style
@@ -7,6 +6,7 @@ from colorama import Fore, Back, Style
 top_row = Fore.BLUE + '1_______2_______3_______4_______5_______6' + Style.RESET_ALL
 BOMB = Back.RED + "X" + Style.RESET_ALL
 result = pyfiglet.figlet_format("Mine Sweeper")
+
 score = 0
 
 
@@ -59,40 +59,38 @@ def minesweeper(n):
         [0, 0, 0, 0, 0, 0],
     ]
 
-    for num in range(7):  # Generates "X" AKA Bombs
-
-        x = random.randint(0, n-1)
-        y = random.randint(0, n-1)
-        arr[y][x] = BOMB
-
+    # for x in range(7):  # Generates "X" AKA Bombs
+    x = random.randint(0, n-1)
+    y = random.randint(0, n-1)
+    arr[y][x] = BOMB
 
 # Logic for the offsets.
-        if (x >= 0 and x <= n-2) and (y >= 0 and y <= n-1):
-            if arr[y][x+1] != BOMB:
-                arr[y][x+1] += 1  # center right
-        if (x >= 1 and x <= n-1) and (y >= 0 and y <= n-1):
-            if arr[y][x-1] != BOMB:
-                arr[y][x-1] += 1  # center left
-        if (x >= 1 and x <= n-1) and (y >= 1 and y <= n-1):
-            if arr[y-1][x-1] != BOMB:
-                arr[y-1][x-1] += 1  # top left
+    if (x >= 0 and x <= n-2) and (y >= 0 and y <= n-1):
+        if arr[y][x+1] != BOMB:
+            arr[y][x+1] += 1  # center right
+    if (x >= 1 and x <= n-1) and (y >= 0 and y <= n-1):
+        if arr[y][x-1] != BOMB:
+            arr[y][x-1] += 1  # center left
+    if (x >= 1 and x <= n-1) and (y >= 1 and y <= n-1):
+        if arr[y-1][x-1] != BOMB:
+            arr[y-1][x-1] += 1  # top left
 
-        if (x >= 0 and x <= n-2) and (y >= 1 and y <= n-1):
-            if arr[y-1][x+1] != BOMB:
-                arr[y-1][x+1] += 1  # top right
-        if (x >= 0 and x <= n-1) and (y >= 1 and y <= n-1):
-            if arr[y-1][x] != BOMB:
-                arr[y-1][x] += 1  # top center
+    if (x >= 0 and x <= n-2) and (y >= 1 and y <= n-1):
+        if arr[y-1][x+1] != BOMB:
+            arr[y-1][x+1] += 1  # top right
+    if (x >= 0 and x <= n-1) and (y >= 1 and y <= n-1):
+        if arr[y-1][x] != BOMB:
+            arr[y-1][x] += 1  # top center
 
-        if (x >= 0 and x <= n-2) and (y >= 0 and y <= n-2):
-            if arr[y+1][x+1] != BOMB:
-                arr[y+1][x+1] += 1  # bottom right
-        if (x >= 1 and x <= n-1) and (y >= 0 and y <= n-2):
-            if arr[y+1][x-1] != BOMB:
-                arr[y+1][x-1] += 1  # bottom left
-        if (x >= 0 and x <= n-1) and (y >= 0 and y <= n-2):
-            if arr[y+1][x] != BOMB:
-                arr[y+1][x] += 1  # bottom center
+    if (x >= 0 and x <= n-2) and (y >= 0 and y <= n-2):
+        if arr[y+1][x+1] != BOMB:
+            arr[y+1][x+1] += 1  # bottom right
+    if (x >= 1 and x <= n-1) and (y >= 0 and y <= n-2):
+        if arr[y+1][x-1] != BOMB:
+            arr[y+1][x-1] += 1  # bottom left
+    if (x >= 0 and x <= n-1) and (y >= 0 and y <= n-2):
+        if arr[y+1][x] != BOMB:
+            arr[y+1][x] += 1  # bottom center
 
     return arr
 
@@ -140,7 +138,7 @@ def player_choise():
             reviel_board(player_check)  # The player inputs thier guess
             print(Back.BLUE + "Enter your cell "
                   "you want to open: " + Style.RESET_ALL)
-            player_first = input("X: Enter numbers 1-6: \n")      
+            player_first = input("X: Enter numbers 1-6: \n")
             player_second = input("Y: Enter numbers 1-6: \n")
             player_first = int(player_first) - 1  # input "1"=0
             player_second = int(player_second) - 1
@@ -168,10 +166,11 @@ def player_choise():
             if hidden_board[x][y] != BOMB:
                 player_check[x][y] = hidden_board[x][y]
                 score += 1  # You got a point!
-
+                print(f"Score: {score}")  # Dislpays scoreboard
 
 # The user dug a bomb
             if hidden_board[x][y] == BOMB:
+                print(f"Score: {score}")  # Dislpays scoreboard
                 print(top_row)
                 reviel_board(hidden_board)  # Reviels the board
                 print(Back.RED + "Game over!" + Style.RESET_ALL)  # ohno!
@@ -185,8 +184,8 @@ def player_choise():
 
         else:
             print(Back.RED + "Please enter a number between 1-6. "
-                  f"You entered:{player_x + 1} "
-                  f"and {player_Y + 1}." + Style.RESET_ALL)
+                  f"You entered:{player_first + 1} "
+                  f"and {player_second + 1}." + Style.RESET_ALL)
         print(top_row)
 
     return False
@@ -220,7 +219,6 @@ def main():
     """
     Runs all functions.
     """
-    score = 0
     minesweeper_heading()
     minesweeper(6)
     player_board()
