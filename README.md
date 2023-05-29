@@ -95,39 +95,39 @@ All cells were checked with no issues.
 | Command Line Input | Input  |      x=1 y="1" | Error message                           | As desired | Yes  |
 | Command Line Input | Input  |      x=1 y=a   | Error message                           | As desired | Yes  |
 
-when testing the inputs i found that men entering -7 broke the game this was fixed by adding this code on line i56:
+When testing the inputs i found that when entering -7 broke the game this was fixed by adding this code on line i56:
 ```
 if 0 <= player_first <= 5 and 0 <= player_second <= 5:
 ```
 
 
 ### Validator Testing
-- HTML
-  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org)
-  ![validator result index.html](/assets/images/validator-index.png)<br>
-  ![validator result events.html](/assets/images/validator-events.png)<br>
-  ![validator result gallery.html](/assets/images/validator-gallery.png)<br>
-  ![validator result signup.html](/assets/images/validator-signup.png)<br>
-  ![validator result thank-you.html](/assets/images/validator-thank-you.png)
-- CSS
-  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org)
-  ![validator result css](/assets/images/validator-css-vikingweekend.png)
+- CI Python Linter
+  - No errors were returned when passing through [CI Python Linter](https://pep8ci.herokuapp.com/#)
 ### Unfixed Bugs
-No bugs unfixed.
+I have had a lot of trouble with a bug in the offset logic. It manifested itself by giving too many points to the numbers around a bomb. I then lowered the number of bombs on the playing field, which has resulted in the bug returning much less often.
 ### Deployment.
 The following git commands were used throughout development to push code to the remote repo:
 
 ```git add <file>``` - This command was used to add the file(s) to the staging area before they are committed.<br>
 ```git commit -m “commit message”``` - This command was used to commit changes to the local repository queue ready for the final step.<br>
 ```git push``` - This command was used to push all committed code to the remote repository on github.
-### Deployment to Github Pages
-- The site was deployed to GitHub pages. The steps to deploy are as follows: 
-  - In the GitHub repository, navigate to the Settings tab 
-  - From the menu on left select 'Pages'
-  - From the source section drop-down menu, select the Branch: main
-  - Click 'Save'
-  - A live link will be displayed in a green banner when published successfully. 
-The live link can be found here. https://jesdah.github.io/Viking_weekend/
+### Deployment
+- Use the following steps to deploy the poject to Heroku:
+1. Use the "pip freeze -- local > requirements.txt" command in the gitPod terminal; to save any libraries that need to be installed to the project files in Heroku.
+2. Login or create a Heroku account.
+3. Click the "New" button in the upper right corner and select "Create New App".
+4. Choose an app name and your region and click "Create App". Note: the app name must be unique.
+5. Go to the "Settings" tab, add the python build pack and then the node.js build pack. This is to ensure the project functions correctly with the Code Institute pre-installed template.
+6. Create a "Config VAR" with the 'CREDS' key and the enter the value of the creds.json file.
+7. Create a second "Config VAR" with the key of 'PORT' and value of '8000'
+8. Go to the "Deploy" tab and pick GitHub as a deployment method.
+9. Search for a repository to connect to.
+10. Click enable automatic deploys and then deploy branch.
+11. Wait for the app to build and then click on the "View" link. 
+
+The live link can be found here. https://minesweeper-project3.herokuapp.com/
+
 ### Clone the Repository Code Locally
 Navigate to the GitHub Repository you want to clone to use locally:
 - Click on the code drop down button
@@ -137,16 +137,5 @@ Navigate to the GitHub Repository you want to clone to use locally:
 - Type git clone copied-git-url into the IDE terminal
 The project will now been cloned on your local machine for use.
 ### Credit.
-* The code for the navbar is taken from the [loverunning project](https://github.com/Code-Institute-Solutions/love-running-2.0-sourcecode/blob/main/07-gallery/02-gallery-images/index.html)
-* I learned how to use flex [w3schools](https://www.w3schools.com/css/css3_flexbox_responsive.asp)and at [Flexboxfroggy](https://www.flexboxfroggy.com/)
-* I got the code to make the thank-you page redirect to the homepage from gareth_mentor:
-```
-<meta http-equiv="refresh" content="10; url=index.html">
-```
+* I have used the code for the offset logic from: [Medium](https://medium.com/swlh/this-is-how-to-create-a-simple-minesweeper-game-in-python-af02077a8de)
 * I have used [w3schools](https://www.w3schools.com/) a lot for inspiration and tips and tricks
-* To compress images I have used [squoosh](https://squoosh.app/editor)
-
-* To get a fixed footer I have taken the code from [w3schools](https://www.w3schools.com/howto/howto_css_fixed_footer.asp)
-
-* For symbols in the footer I have used [Fontawesome](https://fontawesome.com/)
-* I found the pictures at [pexels](https://www.pexels.com/sv-se/)
