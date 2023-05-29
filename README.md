@@ -36,6 +36,9 @@ The app asks for a variable either "1" or "2" the player presses something else 
 ### Error catch 2 (Input X and Y).
 ![Screenshot of the thank you text](/assets/images/thank-you.png)<br>
 The app asks the player to enter a number between 1-6 on the x-axis and a number between 1-6 on the y-axis. If the player writes, for example, a letter, the player is informed that the game is looking for a number between 1-6.
+
+### Error catch 3 (Restart).
+
 ### Existing features.
 * Responsive design
 * Signup form and thank you page

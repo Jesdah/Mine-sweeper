@@ -196,7 +196,7 @@ def restart():
     Allows the user to restart the game
     """
     while True:
-        restart_game = input("Restart? Y/N:\n")  # Yes or no?
+        restart_game = input("Restart? Y/N:\n").lower()  # Yes or no?
 
 # if yes
         if restart_game == "y":
@@ -211,7 +211,7 @@ def restart():
 
         # Error message
         else:
-            print(f"Please answer Yes or No, You entered:{restart_game}")
+            print(f"Please answer Yes or No (y/n), You entered:{restart_game}")
     return False
 
 
