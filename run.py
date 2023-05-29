@@ -1,10 +1,8 @@
 import random
 import pyfiglet
-from colorama import Fore, Back, Style
+from colorama import Back, Style
 
 # Declair some variables
-top_row = Fore.BLUE + (
-     '1_______2_______3_______4_______5_______6' + Style.RESET_ALL)
 BOMB = Back.RED + "X" + Style.RESET_ALL
 result = pyfiglet.figlet_format("Mine Sweeper")
 
@@ -150,7 +148,6 @@ def player_choise():
         except ValueError:  # Oops!
             print(Back.RED + "Please enter a number "
                   "between 1-6." + Style.RESET_ALL)
-            print(top_row)
             continue
 
 # Assign player input to var "X" or "Y" to be checked below
@@ -163,7 +160,6 @@ def player_choise():
                 print(f"Score: {score}")  # Dislpays scoreboard
                 print(Back.RED + "These coordinates have "
                       "already been used, try again!" + Style.RESET_ALL)
-                print(top_row)
                 continue
 
                 # Checks if the user dug a bomb or not
@@ -175,7 +171,6 @@ def player_choise():
 # The user dug a bomb
             if hidden_board[x][y] == BOMB:
                 print(f"Score: {score}")  # Dislpays scoreboard
-                print(top_row)
                 reviel_board(hidden_board)  # Reviels the board
                 print(Back.RED + "Game over!" + Style.RESET_ALL)  # ohno!
                 restart()
@@ -190,7 +185,6 @@ def player_choise():
             print(Back.RED + "Please enter a number between 1-6. "
                   f"You entered:{player_first + 1} "
                   f"and {player_second + 1}." + Style.RESET_ALL)
-        print(top_row)
 
     return False
 
