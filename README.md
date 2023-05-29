@@ -84,56 +84,22 @@ All cells were checked with no issues.
 ### Test cells Y = symbols, dubble numbers and letters.
 | Test Item          | Method |  Input details | Desired Result                          | Result     | Pass |
 | ------------------ | ------ | -------------- | --------------------------------------- | ---------- | ---- |
-| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
-| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
-| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
-| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
-| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
-| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
-| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
-| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
-| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
-| Command Line Input | Input  |      x=1 y=1   | Error message                           | As desired | Yes  |
-## Lighthouse Testing.
-![screenshot of index.html lighthouse score](/assets/images/lighthouse-index.png)<br>
-![screenshot of events.html lighthouse score](/assets/images/lighthouse-event.png)<br>
-![screenshot of gallery.html lighthouse score](/assets/images/lighthouse-gallery.png)<br>
-![screenshot of signup.html lighthouse score](/assets/images/lighthouse-signup.png)
+| Command Line Input | Input  |      x=1 y=-7  | Error message                        |not as desired | No   |
+| Command Line Input | Input  |      x=1 y=!   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y="   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y=#   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y=¤   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y=%   | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |   x=1 y=blank  | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y=11  | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y="1" | Error message                           | As desired | Yes  |
+| Command Line Input | Input  |      x=1 y=a   | Error message                           | As desired | Yes  |
 
-Testing was performed to ensure all navigation links on the respective pages, navigated to the correct pages as per design. This was done by clicking on the navigation links on each page.
-| Navigation | Link Page to Load |
-|------------|-------------------|
-| HOME       | index.html        |
-| EVENTS     | events.html       |
-|GALLERY     | gallery.html      |
-Links on all pages navigated to the correct pages as exptected.
-### Form Testing.
-The form on the signup page was tested to ensure it functioned as expected when correct data was input and when incorrect data was input.<br>
-Steps to test:
-1. Navigate to [Viking weekend signup page.](https://jesdah.github.io/Viking_weekend/signup.html)
-2. Scroll down to the form and input the following data:
-   - First Name: John
-   - Last Name: Doe
-   - Email: doe.john@test.com
-   - Phonenumber: 123456789
-   - age: 8
-   - Allergies: none
-   - Dates: select a date
-   - Anything else you like to add?: This is optional
-3. Click Submit
-4. User should be redirected to thank-you.html confirmation page.<br>
-### Expected:
+when testing the inputs i found that men entering -7 broke the game this was fixed by adding this code on line i56:
+```
+if 0 <= player_first <= 5 and 0 <= player_second <= 5:
+```
 
-Form submits with no warnings or errors and user is redirected to index.html confirmation page.
-
-### Actual:
-
-Website behaved as expected with no errors or warnings and redirected to index.html.<br>
-If a required field is missing the user will not be able to submit and an error field will be displayed.
-### Footer Social Media Icons / Links
-Testing was performed on the Font Awesome Social Media icons in the footer to ensure that each one opened in a new tab.
-
-Each item opened a new tab when clicked as expected.
 
 ### Validator Testing
 - HTML
