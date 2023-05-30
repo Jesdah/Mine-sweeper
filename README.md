@@ -110,7 +110,10 @@ Something that I have found very useful is Lucidchart. Lucidchart has helped a l
   - No errors were returned when passing through [CI Python Linter](https://pep8ci.herokuapp.com/#)
   ![A screenshot of validator result](assets/images/minesweeper-validator.png)
 ### Unfixed Bugs
-I have had a lot of trouble with a bug in the offset logic. It manifested itself by giving too many points to the numbers around a bomb. I then lowered the number of bombs on the playing field, which has resulted in the bug returning much less often.
+I have had a lot of trouble with a bug in the offset logic. It manifested itself by giving too many points to the numbers around a bomb. I then lowered the number of bombs on the playing field and added this code on line 64:<br>
+```if x and y == x and y:
+            x = random.randint(0, n-1) ```<br>
+which has resulted in the bug returning much less often.
 ### Deployment.
 The following git commands were used throughout development to push code to the remote repo:
 

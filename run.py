@@ -60,9 +60,9 @@ def minesweeper(n):
     r = range(4)
     for num in r:  # Generates "X" AKA Bombs
         x = random.randint(0, n-1)
-        x = random.randint(0, n-1)
         y = random.randint(0, n-1)
-        y = random.randint(0, n-1)
+        if x and y == x and y:
+            x = random.randint(0, n-1)
         arr[y][x] = BOMB
 
 # Logic for the offsets.
