@@ -63,6 +63,7 @@ def minesweeper(n):
         y = random.randint(0, n-1)
         if x and y == x and y:
             x = random.randint(0, n-1)
+            y = random.randint(0, n-1)
         arr[y][x] = BOMB
 
 # Logic for the offsets.
